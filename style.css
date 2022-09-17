@@ -1,0 +1,383 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    
+}
+a{
+    color: rgb(100, 100, 100);
+}
+a:hover{
+    color: rgb(203, 203, 203)
+}
+a:visited{
+    color: rgb(100, 100, 100);
+}
+body{
+    display: grid; 
+    background-image:url(./img/starry-night-sky.jpg);
+}
+
+/*-----------------NAVBAR-------------------------*/
+
+.navbar{
+    background-color: rgb(24, 24, 24);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 100%;
+    padding: 20px 0px 20px 15px;
+    position: fixed;
+}
+
+.logo-container{
+    color: rgb(203, 203, 203);
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-h{
+    font-size: 20px;
+}
+
+.logo-p{
+    font-size: 10px;
+    font-style: italic;
+}
+
+.link-header-conteiner{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style: none;
+}
+
+.header-li{
+    font-weight: bold;
+    transition: 300ms;
+}
+
+.header-li:hover{
+    cursor: pointer;
+    color: rgb(203, 203, 203) 
+}
+
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: rgb(100, 100, 100)
+}
+
+/*------------------------MAIN--------------------*/
+
+.profile-container{
+    background-color: rgba(24, 24, 24, 0.5);
+    color:rgb(203, 203, 203);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    
+}
+
+/* .title-container{
+    background-color: rgb(24, 24, 24);
+} */
+
+.title{
+    font-size: 50px;
+}
+
+.title2{
+    align-self: flex-start;
+}
+
+.code-tag{
+    color: rgb(100, 100, 100);
+}
+
+/*---------------SKILLS---------------*/
+
+.skills{
+    display: flex;
+    align-items: center;
+}
+
+.skills-item-container{
+    background-color: rgba(24, 24, 24, 0.5);
+    color: rgb(203, 203, 203);
+    width: 80%;
+    display:flex;
+    justify-content: space-between;
+}
+
+.skills-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill-icon{
+    font-size: 80px;
+}
+
+/* -------------PROJECTS------------- */
+.projects-section{
+    background-color: rgb(24, 24, 24);
+    display: flex;
+}
+.general-projects-container, .skills-container{
+    background-color: rgb(24, 24, 24);
+    color: rgb(203, 203, 203);
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 0;
+    padding-top: 78px;
+    padding-left: 10%;
+    padding-bottom: 5%;
+}
+
+.general-projects-container{
+  width: 20rem;
+}
+
+.general-project-title, .general-skills-title{
+    background-color: rgb(24, 24, 24);
+    color: rgb(100, 100, 100);
+    padding-bottom: 25px;
+    font-size: 40px;
+}
+.item-container{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 18px;
+    font-size: 25px;
+}
+
+.project-link *{
+    color: rgb(100, 100, 100);
+    transition: color 300ms;
+}
+
+.project-title{
+    transition: 300ms;
+}
+
+.project-title:hover{
+    cursor: pointer;
+    color:rgb(100, 100, 100);
+}
+
+.project-link *:hover{
+    cursor:pointer;
+    color: rgb(203, 203, 203)
+}
+
+.see-more-link{
+    color: rgb(100, 100, 100);
+    transition: 300ms;
+}
+
+.see-more-link:hover{
+    cursor: pointer;
+    color: rgb(203, 203, 203)
+}
+
+/*-------------------------*/
+
+#project-display{
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+
+.fade-in{
+    animation: fadeInAnimation ease 500ms;
+    /* animation-iteration-count: 1;
+    animation-fill-mode: forwards; */
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-out{
+    animation: fadeOutAnimation ease 300ms;
+    /* animation-iteration-count: 1;
+    animation-fill-mode: forwards; */
+}
+@keyframes fadeOutAnimation {
+    100% {
+        opacity: 0;
+    }
+    0% {
+        opacity: 1;
+    }
+}
+
+.proj-display-cont{
+    background-color: rgb(24, 24, 24);
+    display: flex;
+
+}
+/*--------------------*/
+/* .proj-display-cont{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000000;
+    opacity: 0;    
+}
+
+
+.proj-display-cont:target {
+    -webkit-transition: opacity 2.0s ease-in;
+       -moz-transition: opacity 2.0s ease-in;
+         -o-transition: opacity 2.0s ease-in;
+                                  opacity: 1;
+} */
+
+/*--------------------------*/
+
+.project-link-title{
+    background-color: rgb(24, 24, 24);
+    color: rgb(100, 100, 100);
+    
+    font-size: 40px;
+}
+
+.proj-link-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: end;
+    padding-bottom: 4rem;
+}
+
+.project-link{
+    font-size: 25px;
+    color: rgb(100, 100, 100);
+    padding-top: 2rem;
+    transition: 300ms;
+}
+
+.project-link:hover{
+    cursor: pointer;
+    color: rgb(203, 203, 203)
+}
+
+.img-proj-cont{
+    margin-left: 4rem;
+    width: 80vh;
+}
+
+.img-proj{
+    width: 100%;
+}
+
+/*-------------CONTACT---------------*/
+
+
+
+.contact-container{
+    background-image:url(./img/starry-night-sky.jpg);
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0% 20%;
+
+}
+.profile-foto-cont{
+    width: 200px;
+    margin-bottom: 2rem;
+}
+
+.profile-foto{
+    width: 100%;
+    border-radius: 50%
+}
+
+.contact-links-container, .contact-link{
+    display: flex; 
+}
+
+.contact-me{
+    color: rgb(203, 203, 203);
+    padding-bottom: 50px;
+    font-size: 40px;
+}
+.contact-links-container {
+    width: 50%;
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.icon-name *{
+    color:rgb(100, 100, 100);
+    cursor: pointer;
+    font-size: 40px;
+    transition: 300ms;
+}
+
+.icon-name *:hover{
+    color: rgb(203, 203, 203)
+}
+
+/*-------------------FOOTER---------------------*/
+
+.footer{
+    background-color: rgb(24, 24, 24);
+    color: rgb(100, 100, 100);
+    padding-top: 1.5vh;
+    padding-bottom: 2vh;
+    height: 1vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.email-link{
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+/* .email-link:hover{
+    color: rgb(203, 203, 203)
+} */
+
+/*******************************************************************************/
+
+@media(max-width: 768px){
+    .link-header-conteiner{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .profile-container{
+        padding-left: 2rem;
+        padding-right: 5rem;
+    }
+    .item-container{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+    .skill-icon{
+        font-size: 50px;
+    }
+}
+
+@media(max-width: 1200px){
+    .item-container{
+        width: 100%;
+    }
+}
