@@ -23,56 +23,60 @@ const myProjects = [
         codeLink: "https://github.com/PabloRossi1983",
         img: "./img/wheather.png"
     }
-]
+];
 
-window.addEventListener("DOMContentLoaded", function(){
+window.addEventListener("load", function(){
     displayProjects(myProjects)
     displayDetail()
-})
+});
 
-const displayProjects = (projects)=> {
-    const projectCont = document.getElementById("projects-container");
-    let mapedProjects = projects.map((el)=> `<div id="item-container" class="item-container">
-                                             <h3 class="project-title" 
-                                             data-proj=${el.projectLink}
-                                             data-code=${el.codeLink}
-                                             data-img=${el.img}>${el.name}</h3>
-                                             </div>`
-    ).join("")
-    projectCont.innerHTML = mapedProjects;
-}
+  const displayProjects = (projects)=> {
+      const projectCont = document.getElementById("projects-container");
+      let mapedProjects = projects.map((el)=> `<div id="item-container" class="item-container">
+                                               <h3 class="project-title" 
+                                               data-proj=${el.projectLink}
+                                               data-code=${el.codeLink}
+                                               data-img=${el.img}>${el.name}</h3>
+                                               </div>`
+      ).join("")
+      projectCont.innerHTML = mapedProjects;
+  };
+  
+  const displayProject = (project) =>{
+      const projectDisplay = document.getElementById("project-display")
+      const projDisplay = document.getElementById("proj-display-cont");
+      const proj =  project.currentTarget.dataset.proj;    
+      const code =  project.currentTarget.dataset.code;
+      const projImg = project.currentTarget.dataset.img;
 
-const displayProject = (project) =>{
-    const projectDisplay = document.getElementById("project-display")
-    const projDisplay = document.getElementById("proj-display-cont");
-    const proj =  project.currentTarget.dataset.proj;    
-    const code =  project.currentTarget.dataset.code;
-    const projImg = project.currentTarget.dataset.img;
-    const detailHtml =  `<div id="proj-display-cont" class="proj-display-cont fade-in">
-                          <div class="proj-link-cont">
-                              <h3 class="project-link-title">Go to...</h3>
-                              <h3 class="project-link"><a href=${proj} target="_blank">project</a></h3>
-                              <h3 class="project-link"><a href=${code} target="_blank">code</a></h3>
-                          </div>
-                          <div class="img-proj-cont">
-                            <img class="img-proj" src=${projImg} alt="profile-foto"/>
-                          </div>
-                        </div>`
 
-    projDisplay === null?
-        projectDisplay.innerHTML = detailHtml:       
-        (projDisplay.classList.add("fade-out"),
-        setTimeout(()=>projectDisplay.innerHTML = detailHtml , 200))
-
-}
-
-const displayDetail = ()=> {
-
+     const detailHtml = new Promise((resolve)=>{
+        resolve (`<div id="proj-display-cont" class="proj-display-cont fade-in">
+                    <div class="proj-link-cont">
+                        <h3 class="project-link-title">Go to...</h3>
+                        <h3 class="project-link"><a href=${proj} target="_blank">project</a></h3>
+                        <h3 class="project-link"><a href=${code} target="_blank">code</a></h3>
+                    </div>
+                    <div class="img-proj-cont">
+                      <img class="img-proj" src=${projImg} alt="profile-foto"/>
+                    </div>
+                  </div>`)
+     })
+     detailHtml.then(res => {projDisplay === null?
+          projectDisplay.innerHTML = res:       
+          (projDisplay.classList.add("fade-out"),
+          setTimeout(()=>projectDisplay.innerHTML = res , 200))})
+      
+  
+  };
+  
+  const displayDetail = ()=> {
+  
     const projectTitle = document.querySelectorAll(".project-title");
-    
+      
     projectTitle.forEach((el)=> el.addEventListener("click", function(e){
         displayProject(e)     
-})) 
-}
+    })); 
+  };
 
- 
+

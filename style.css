@@ -193,6 +193,11 @@ a:visited{
     width: auto;
 }
 
+.proj-display-cont{
+    background-color: rgb(24, 24, 24);
+    display: flex;
+}
+
 .fade-in{
     animation: fadeInAnimation ease 500ms;
     /* animation-iteration-count: 1;
@@ -206,6 +211,8 @@ a:visited{
         opacity: 1;
     }
 }
+
+
 
 .fade-out{
     animation: fadeOutAnimation ease 300ms;
@@ -221,11 +228,6 @@ a:visited{
     }
 }
 
-.proj-display-cont{
-    background-color: rgb(24, 24, 24);
-    display: flex;
-
-}
 /*--------------------*/
 /* .proj-display-cont{
     width: 100px;
