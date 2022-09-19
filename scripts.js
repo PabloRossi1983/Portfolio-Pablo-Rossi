@@ -23,9 +23,9 @@ const myProjects = [
         codeLink: "https://github.com/PabloRossi1983",
         img: "./img/wheather.png"
     }
-];
+]
 
-window.addEventListener("load", function(){
+window.addEventListener("DOMContentLoaded", function(){
     displayProjects(myProjects)
     displayDetail()
 });
@@ -40,7 +40,7 @@ window.addEventListener("load", function(){
                                                </div>`
       ).join("")
       projectCont.innerHTML = mapedProjects;
-  };
+  }
   
   const displayProject = (project) =>{
       const projectDisplay = document.getElementById("project-display")
@@ -48,35 +48,32 @@ window.addEventListener("load", function(){
       const proj =  project.currentTarget.dataset.proj;    
       const code =  project.currentTarget.dataset.code;
       const projImg = project.currentTarget.dataset.img;
-
-
-     const detailHtml = new Promise((resolve)=>{
-        resolve (`<div id="proj-display-cont" class="proj-display-cont fade-in">
-                    <div class="proj-link-cont">
-                        <h3 class="project-link-title">Go to...</h3>
-                        <h3 class="project-link"><a href=${proj} target="_blank">project</a></h3>
-                        <h3 class="project-link"><a href=${code} target="_blank">code</a></h3>
-                    </div>
-                    <div class="img-proj-cont">
-                      <img class="img-proj" src=${projImg} alt="profile-foto"/>
-                    </div>
-                  </div>`)
-     })
-     detailHtml.then(res => {projDisplay === null?
-          projectDisplay.innerHTML = res:       
+      const detailHtml =  Promise.resolve(projectDisplay.innerHTML = `<div id="proj-display-cont" class="proj-display-cont fade-in">
+                            <div class="proj-link-cont">
+                                <h3 class="project-link-title">Go to...</h3>
+                                <h3 class="project-link"><a href=${proj} target="_blank">project</a></h3>
+                                <h3 class="project-link"><a href=${code} target="_blank">code</a></h3>
+                            </div>
+                            <div class="img-proj-cont">
+                              <img class="img-proj" src=${projImg} alt="profile-foto"/>
+                            </div>
+                          </div>`)
+    detailHtml.then(res => projDisplay === null?
+          res:       
           (projDisplay.classList.add("fade-out"),
-          setTimeout(()=>projectDisplay.innerHTML = res , 200))})
+          setTimeout(()=>res , 200)))
+  
       
   
-  };
+  }
   
   const displayDetail = ()=> {
   
-    const projectTitle = document.querySelectorAll(".project-title");
+      const projectTitle = document.querySelectorAll(".project-title");
       
-    projectTitle.forEach((el)=> el.addEventListener("click", function(e){
-        displayProject(e)     
-    })); 
-  };
+      projectTitle.forEach((el)=> el.addEventListener("click", function(e){
+          displayProject(e)     
+  })) 
+  }
 
 

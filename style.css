@@ -198,6 +198,10 @@ a:visited{
     display: flex;
 }
 
+.hyde{
+    opacity:0;
+}
+
 .fade-in{
     animation: fadeInAnimation ease 500ms;
     /* animation-iteration-count: 1;
