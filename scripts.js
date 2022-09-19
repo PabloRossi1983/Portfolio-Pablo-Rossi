@@ -42,13 +42,13 @@ window.addEventListener("DOMContentLoaded", function(){
       projectCont.innerHTML = mapedProjects;
   }
   
-  const displayProject = (project) =>{
+  const displayProject = (project) =>{ //CHEQUEAR SI SE CARGA BIEN
       const projectDisplay = document.getElementById("project-display")
       const projDisplay = document.getElementById("proj-display-cont");
       const proj =  project.currentTarget.dataset.proj;    
       const code =  project.currentTarget.dataset.code;
       const projImg = project.currentTarget.dataset.img;
-      const detailHtml =  Promise.resolve(projectDisplay.innerHTML = `<div id="proj-display-cont" class="proj-display-cont fade-in">
+      const detailHtml =  Promise.resolve(`<div id="proj-display-cont" class="proj-display-cont fade-in">
                             <div class="proj-link-cont">
                                 <h3 class="project-link-title">Go to...</h3>
                                 <h3 class="project-link"><a href=${proj} target="_blank">project</a></h3>
@@ -58,10 +58,12 @@ window.addEventListener("DOMContentLoaded", function(){
                               <img class="img-proj" src=${projImg} alt="profile-foto"/>
                             </div>
                           </div>`)
-    detailHtml.then(res => projDisplay === null?
-          res:       
-          (projDisplay.classList.add("fade-out"),
-          setTimeout(()=>res , 200)))
+     detailHtml.then(res =>{
+          projDisplay === null?
+          setTimeout(()=> projectDisplay.innerHTML = res, 200):       
+          projDisplay.classList.add("fade-out"),
+          setTimeout(()=> projectDisplay.innerHTML = res, 200)
+          })
   
       
   
